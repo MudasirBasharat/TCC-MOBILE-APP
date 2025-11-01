@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_clothing/constants/colors.dart';
+import 'package:travel_clothing/screens/sign_up_screen.dart';
 import 'package:travel_clothing/widgets/custom_button.dart';
+import 'login_screen.dart'; // LoginScreen import karo
 
 class AccountTypeScreen extends StatefulWidget {
   const AccountTypeScreen({super.key});
@@ -112,7 +114,7 @@ class _AccountTypeScreenState extends State<AccountTypeScreen> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    _handleSignIn(); // Changed to navigate to LoginScreen
                   },
                   child: RichText(
                     text: TextSpan(
@@ -213,6 +215,19 @@ class _AccountTypeScreenState extends State<AccountTypeScreen> {
 
   void _handleSignUp() {
     print('Selected account type: $_selectedAccountType');
-    // Navigate to sign up screen with selected account type
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignUpScreen(accountType: ''),
+      ),
+    );
+  }
+
+  void _handleSignIn() {
+    // LoginScreen par navigate karo
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+    );
   }
 }

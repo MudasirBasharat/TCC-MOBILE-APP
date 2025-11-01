@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_clothing/screens/profile_setup_screen.dart';
 import 'package:travel_clothing/widgets/custom_textfield.dart';
 import '../widgets/custom_button.dart';
 import '../constants/colors.dart';
@@ -155,6 +156,10 @@ class _ManualLocationScreenState extends State<ManualLocationScreen> {
     final city = _cityController.text;
     final postalCode = _postalCodeController.text;
     print('Manual location: $country, $city, $postalCode');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ProfileSetupScreen()),
+    );
   }
 
   @override

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:travel_clothing/constants/colors.dart';
+import 'package:travel_clothing/screens/location_permission.screen.dart';
 import 'package:travel_clothing/widgets/custom_button.dart';
 import 'package:travel_clothing/widgets/custom_textfield.dart';
 import 'package:travel_clothing/widgets/google_signinbutton.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+  const SignUpScreen({super.key, required String accountType});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -237,7 +238,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final confirmPassword = _confirmPasswordController.text;
 
     print('Sign up: $fullName, $email, $password, $confirmPassword');
-    // Implement sign up logic
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const LocationPermissionScreen()),
+    );
   }
 
   void _handleGoogleSignUp() {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:travel_clothing/constants/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label;

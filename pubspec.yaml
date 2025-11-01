@@ -25,7 +25,7 @@ flutter:
     - assets/images/onboarding1.png
     - assets/images/onboarding2.png
     - assets/images/onboarding3.png
-    - assets/   # optional, include full assets folder
+    - assets/
 
   fonts:
     - family: RobotoSerif

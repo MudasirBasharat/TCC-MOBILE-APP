@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_clothing/constants/colors.dart';
+import 'package:travel_clothing/screens/select_account_type_screen.dart';
 import 'package:travel_clothing/widgets/custom_button.dart';
 import 'package:travel_clothing/widgets/custom_textfield.dart';
 import 'package:travel_clothing/widgets/google_signinbutton.dart';
+// AccountTypeScreen import karo
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -55,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 'Log in to your account',
                 style: GoogleFonts.robotoSerif(
                   fontSize: 24,
-                  fontWeight: FontWeight.w600, // Made slightly bolder
+                  fontWeight: FontWeight.w600,
                   height: 1.3,
                   letterSpacing: -0.03,
                   color: AppColors.textPrimary,
@@ -204,11 +206,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 32),
 
-              // Don't have account
+              // Don't have account - NOW FUNCTIONAL
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    // Navigate to sign up screen
+                    _handleSignUp(); // Navigate to AccountTypeScreen
                   },
                   child: RichText(
                     text: const TextSpan(
@@ -244,11 +246,26 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordController.text;
     print('Sign in: $email, $password');
     // Implement sign in logic
+
+    // Success hone par home screen par navigate karo
+    // Navigator.pushAndRemoveUntil(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => HomeScreen()),
+    //   (route) => false,
+    // );
   }
 
   void _handleGoogleSignIn() {
     print('Google sign in');
     // Implement Google sign in
+  }
+
+  void _handleSignUp() {
+    // AccountTypeScreen par navigate karo
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const AccountTypeScreen()),
+    );
   }
 
   @override
